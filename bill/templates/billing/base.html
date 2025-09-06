@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Invoice App{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <nav class="bg-blue-600 p-4 text-white flex justify-between">
+        <a href="/" class="font-bold">Invoice Billing</a>
+        <div>
+            <a href="{% url 'customer_list' %}" class="px-3">Customers</a>
+            <a href="{% url 'product_list' %}" class="px-3">Products</a>
+            <a href="{% url 'invoice_create' %}" class="px-3">New Invoice</a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-6">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

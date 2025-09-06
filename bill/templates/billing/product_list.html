@@ -1,0 +1,24 @@
+{% extends 'billing/base.html' %}
+{% block title %}Products{% endblock %}
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Products</h1>
+<a href="{% url 'product_create' %}" class="bg-green-600 text-white px-4 py-2 rounded">+ Add Product</a>
+<table class="w-full mt-4 border">
+    <tr class="bg-gray-200">
+        <th class="p-2 border">Name</th>
+        <th class="p-2 border">Price</th>
+        <th class="p-2 border">Tax %</th>
+        <th class="p-2 border">Stock</th>
+    </tr>
+    {% for p in products %}
+    <tr>
+        <td class="p-2 border">{{ p.name }}</td>
+        <td class="p-2 border">{{ p.price }}</td>
+        <td class="p-2 border">{{ p.tax_percent }}</td>
+        <td class="p-2 border">{{ p.stock }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="4" class="p-4 text-center">No Products Found</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}
